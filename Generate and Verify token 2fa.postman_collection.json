@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "881cddbc-ec2a-4d67-b684-f9358a197649",
+		"name": "Generate and Verify token 2fa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18997431"
+	},
+	"item": [
+		{
+			"name": "Generate Secret",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/generate-secret?nameapp={{Name App}}&accountname={{user name}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"generate-secret"
+					],
+					"query": [
+						{
+							"key": "nameapp",
+							"value": "{{Name App}}"
+						},
+						{
+							"key": "accountname",
+							"value": "{{user name}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/generate-token?secret={{Secret Token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"generate-token"
+					],
+					"query": [
+						{
+							"key": "secret",
+							"value": "{{Secret Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/verify-token?secret={{Secret Token}}&token={{token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"verify-token"
+					],
+					"query": [
+						{
+							"key": "secret",
+							"value": "{{Secret Token}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "500547"
+		},
+		{
+			"key": "Secret Token",
+			"value": "OXYSJKMH4W3GEZACMJ6LIBZGXQ",
+			"type": "string"
+		},
+		{
+			"key": "Name App",
+			"value": "2fa"
+		},
+		{
+			"key": "user name",
+			"value": "Syahdan"
+		}
+	]
+}
